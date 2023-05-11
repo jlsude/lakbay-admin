@@ -421,7 +421,7 @@ export default {
                 })
                 .then((response) => {
 
-                    console.log(results)
+                    console.log(response)
                                         
                 })
                 .catch(error => {
@@ -436,7 +436,7 @@ export default {
                 })
                 .then((response) => {
 
-                    console.log(results)
+                    console.log(response)
                                         
                 })
                 .catch(error => {
@@ -451,7 +451,7 @@ export default {
                 })
                 .then((response) => {
 
-                    console.log(results)
+                    console.log(response)
                                         
                 })
                 .catch(error => {

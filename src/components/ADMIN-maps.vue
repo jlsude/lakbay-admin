@@ -105,6 +105,7 @@ export default {
     data(){
         return{
 
+            userProfile: [],
             maps: [],
             map: null,
             mapLocation: null,
@@ -117,6 +118,35 @@ export default {
         }
     },
     mounted(){
+        let userToken = Cookies.get('auth_token');
+			if (userToken) {
+				axios.get(`http://localhost:7000/home/u/userprofile`, {
+				headers: {
+					Authorization: `Bearer ${userToken}`
+				}
+				})
+				.then((response) => {
+				this.userProfile = response.data[0];
+				})
+				.catch(error => {
+				if (error.response && error.response.status === 401) {
+					// Token has expired
+					alert('Your session has expired. Please login again.');
+					console.log('Session expired, signing out')
+					Cookies.remove('auth_token'); 
+					this.$router.push({name: 'adminlogin'});
+				} else {
+					console.log(error);
+				}
+				});
+			} 
+			else {
+				console.log('clearing cookie')
+                Cookies.remove('auth_token'); 
+                this.authToken = ''
+				this.$router.push({name: 'adminlogin'});
+			};
+            
         axios.get('http://localhost:7000/maps/allview')
             .then((response) => {
                 this.maps = response.data;

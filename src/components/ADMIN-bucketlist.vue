@@ -305,7 +305,7 @@ export default {
                                                         //landmark 3
                                                         axios.post('http://localhost:7000/bucketlist/add/locationbucketlist', {
                                                             bucketlistid: this.bucketlistidinserted,
-                                                            landmarkid: this.landmark1Id
+                                                            landmarkid: this.landmark3Id
                                                         })
                                                         .then((response) => {
                                                             console.log("Landmark 3 success")
@@ -331,7 +331,7 @@ export default {
                                                         //landmark 5
                                                         axios.post('http://localhost:7000/bucketlist/add/locationbucketlist', {
                                                             bucketlistid: this.bucketlistidinserted,
-                                                            landmarkid: this.landmark1Id
+                                                            landmarkid: this.landmark5Id
                                                         })
                                                         .then((response) => {
                                                             console.log("Landmark 5 success")
